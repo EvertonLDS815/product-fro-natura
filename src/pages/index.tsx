@@ -2,7 +2,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.scss';
 import Logo from '../../public/logo-jl.png';
-import { Input } from '../components/ui/input/input';
+
+import { Input } from '../components/ui/input';
+import {Button} from '../components/ui/button';
 
 export default function Home() {
   return (
@@ -18,6 +20,10 @@ export default function Home() {
           <form>
             <Input type="text" placeholder={'Digite seu Email...'} />
             <Input type="password" placeholder={'Digite sua Senha...'} />
+            <Button 
+              type="submit"
+              loading={false}
+            >Acessar</Button>
           </form>
         </div>
       </div>

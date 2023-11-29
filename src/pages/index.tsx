@@ -5,6 +5,7 @@ import Logo from '../../public/logo-jl.png';
 
 import { Input } from '../components/ui/input';
 import {Button} from '../components/ui/button';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -25,6 +26,10 @@ export default function Home() {
               loading={false}
             >Acessar</Button>
           </form>
+
+          <Link href="/signup" legacyBehavior>
+            <a className={styles.text}>Não possui uma conta? Cadastre-se</a>
+          </Link>
         </div>
       </div>
     </>

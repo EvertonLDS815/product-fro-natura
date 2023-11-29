@@ -5,10 +5,14 @@
     align-items: center;
     flex-direction: column;
     color: var(--gray);
+
+    img {
+        width: 350px;
+        height: auto;
+    }
 }
 
 .login {
-    margin-top: 2rem;
     width: 500px;
     display: flex;
     align-items: center;
@@ -34,6 +38,11 @@
     cursor: pointer;
 }
 
+.titlePage {
+    color: white;
+    font-size: 29px;
+    margin-bottom: 2rem;
+}
 @media (max-width: 500px) {
     .containerCenter img {
         width: 90vw;

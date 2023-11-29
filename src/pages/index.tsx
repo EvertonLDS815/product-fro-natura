@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.scss';
-import Logo from '../../public/logo-jl.png';
+import Logo from '../../public/logo-jl-2.png';
 
 import { Input } from '../components/ui/input';
 import {Button} from '../components/ui/button';
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Natura - Faça seu Login</title>
+        <title>Natura - Login</title>
       </Head>
 
       <div className={styles.containerCenter}>
@@ -19,8 +19,8 @@ export default function Home() {
 
         <div className={styles.login}>
           <form>
-            <Input type="text" placeholder={'Digite seu Email...'} />
-            <Input type="password" placeholder={'Digite sua Senha...'} />
+            <Input type="text" placeholder={'Digite seu email...'} />
+            <Input type="password" placeholder={'Digite sua senha...'} />
             <Button 
               type="submit"
               loading={false}

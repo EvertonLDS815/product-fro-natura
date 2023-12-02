@@ -7,6 +7,7 @@ import Logo from '../../public/logo-jl-2.png';
 import { Input } from '../components/ui/input';
 import {Button} from '../components/ui/button';
 import Link from 'next/link';
+import {toast} from 'react-toastify';
 
 import {AuthContext} from '../contexts/AuthContext';
 
@@ -36,7 +37,7 @@ export default function Home() {
   
       setLoading(false);
     } catch (err: any) {
-      alert(err.message);
+      toast.error(err.message);
     }
   }
 

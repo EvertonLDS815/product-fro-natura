@@ -1,4 +1,4 @@
-import {FormEvent, useState, useContext} from 'react'
+import {FormEvent, useState, useContext} from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../../styles/Home.module.scss';
@@ -7,8 +7,9 @@ import Logo from '../../../public/logo-jl-2.png';
 import { Input } from '../../components/ui/input';
 import {Button} from '../../components/ui/button';
 import Link from 'next/link';
+import {toast} from 'react-toastify';
 
-import {AuthContext} from '../../contexts/AuthContext'
+import {AuthContext} from '../../contexts/AuthContext';
 
 export default function Signup() {
   const {signUp} = useContext(AuthContext);
@@ -27,10 +28,16 @@ export default function Signup() {
         throw new Error('Preencha todos os campos!');
       }
       if (email.length < 12 || email.length > 30) {
-        throw new Error('Seu email deve conter 12 caracteres e 30');
+        throw new Error('Seu email deve conter entre 12 caracteres e 30!');
+      }
+      if (!email.includes('@gmail.com') && !email.includes('@hotmail.com')) {
+        throw new Error(`O email deve conter '@gmail.com' ou 'hotmail.com'`);
+      }
+      if (email.split('@gmail.com')[1] || email.split('@hotmail.com')[1]) {
+        throw new Error(`O email deve conter '@gmail.com' ou 'hotmail.com' no final!`);
       }
       if (password.length <= 3) {
-        throw new Error('Senha deve conter mais de três caracteres');
+        throw new Error('Senha deve conter mais de três caracteres!');
       }
   
       setLoading(true);
@@ -45,7 +52,7 @@ export default function Signup() {
   
       setLoading(false);
     } catch (err: any) {
-      alert(err.message)
+      toast.error(err.message)
     }
   }
   return (

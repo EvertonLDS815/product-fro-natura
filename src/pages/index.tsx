@@ -7,6 +7,7 @@ import Logo from '../../public/logo-jl-2.png';
 import { Input } from '../components/ui/input';
 import {Button} from '../components/ui/button';
 import Link from 'next/link';
+import {canSSRGuest} from '../utils/canSSRGuest';
 import {toast} from 'react-toastify';
 
 import {AuthContext} from '../contexts/AuthContext';
@@ -77,3 +78,12 @@ export default function Home() {
     </>
   )
 }
+
+
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+
+  return {
+    props: {}
+  }
+  
+})

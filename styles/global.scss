@@ -6,6 +6,7 @@
 }
 
 :root {
+    --background-body: #402f3a;
     --white: #fff;
     --black: #000;
     --gray: #ccc;
@@ -18,10 +19,9 @@
     --mar-300: #E7CBCB;
 
     --input-color: #4a4949;
-    --input-color-hov: #402f3a;
     --des-green: #3fffa3;
 
-    --pink-button: #02a953;
+    --button-enter: #02a953;
     --blue-hov: #03a9f4;
 }
 
@@ -34,7 +34,7 @@ a {
     text-decoration: none;
 }
 body {
-    background: var(--dark-900);
+    background: var(--background-body);
 }
 
 body, input, textarea, select, button {

@@ -16,7 +16,7 @@ import {
     ): Promise<GetServerSidePropsResult<P>> => {
       const cookies = parseCookies(ctx);
   
-      const token = cookies['@nextAuth.token'];
+      const token = cookies['@nextauth.token'];
   
       if (!token) {
         return {

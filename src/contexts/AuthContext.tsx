@@ -38,7 +38,6 @@ export const AuthContext = createContext({} as AuthContextData);
 export function signOut() {
     try {
         destroyCookie(undefined, '@nextauth.token');
-        toast.success('Deslogado com sucesso!')
         Router.push('/');
     } catch (err) {
         console.log('Erro ao deslogar');
@@ -51,7 +50,7 @@ export function AuthProvider({children}: AuthProviderProps) {
 
     useEffect(() => {
         // Tentar pegar algo na nookie
-        const {'@nextAuth.token': token} = parseCookies();
+        const {'@nextauth.token': token} = parseCookies();
 
         if (token) {
             api.get('/me').then(response => {

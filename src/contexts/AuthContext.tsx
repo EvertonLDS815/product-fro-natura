@@ -1,12 +1,10 @@
-import {createContext, ReactNode, useState} from 'react';
-
+import {createContext, ReactNode, useState, useEffect} from 'react';
 import {api} from '../services/apiClient';
 
 import {destroyCookie, setCookie, parseCookies} from 'nookies';
 import Router from 'next/router';
 
 import {toast} from 'react-toastify';
-
 type AuthContextData = {
     user?: UserProps;
     isAuthenticated: boolean;
@@ -40,6 +38,7 @@ export const AuthContext = createContext({} as AuthContextData);
 export function signOut() {
     try {
         destroyCookie(undefined, '@nextauth.token');
+        toast.success('Deslogado com sucesso!')
         Router.push('/');
     } catch (err) {
         console.log('Erro ao deslogar');
@@ -49,6 +48,29 @@ export function signOut() {
 export function AuthProvider({children}: AuthProviderProps) {
     const [user, setUser] = useState<UserProps>();
     const isAuthenticated = !!user;
+
+    useEffect(() => {
+        // Tentar pegar algo na nookie
+        const {'@nextAuth.token': token} = parseCookies();
+
+        if (token) {
+            api.get('/me').then(response => {
+                const {id, name, email} = response.data;
+
+                console.log(response.data)
+
+                setUser({
+                    id,
+                    name,
+                    email
+                });
+            })
+            .catch((err) => {
+                // Se deu erro deslogamos o user
+                signOut();
+            })
+        }
+    }, [])
     
     
     async function signIn({email, password}: SignInProps) {

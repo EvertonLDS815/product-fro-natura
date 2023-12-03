@@ -4,7 +4,7 @@ import {
     GetServerSidePropsResult,
   } from 'next';
   
-  import { parseCookies, destroyCookie } from 'nookies';
+  import { parseCookies } from 'nookies';
   import { AuthTokenError } from '../services/errors/AuthTokenError';
   
   // função para páginas só users logados terá acesso
@@ -16,7 +16,7 @@ import {
     ): Promise<GetServerSidePropsResult<P>> => {
       const cookies = parseCookies(ctx);
   
-      const token = cookies['@nextauth.token'];
+      const token = cookies['@nextAuth.token'];
   
       if (!token) {
         return {

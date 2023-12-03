@@ -1,11 +1,11 @@
-import { canSSRAuth } from "@/utils/canSSRAuth"
+import { canSSRAuth } from '../../utils/canSSRAuth';
 
 
 export default function Dashboard() {
 
     return (
         <>
-            <h1>Olá usuário!</h1>
+            <h1>Olá usuário Front-end!</h1>
         </>
     )
 }

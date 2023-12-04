@@ -56,8 +56,6 @@ export function AuthProvider({children}: AuthProviderProps) {
             api.get('/me').then(response => {
                 const {id, name, email} = response.data;
 
-                console.log(response.data)
-
                 setUser({
                     id,
                     name,

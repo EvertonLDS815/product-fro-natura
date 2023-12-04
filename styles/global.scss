@@ -9,7 +9,7 @@
     --background-body: #402f3a;
     --white: #fff;
     --black: #000;
-    --gray: #ccc;
+    --gray: #bbb;
     --primary-light: #e173b6;
     --dark-900: #b053ae;
     --dark-600: #613851;
@@ -18,7 +18,7 @@
     --mar-500: #C88EA7;
     --mar-300: #E7CBCB;
 
-    --input-color: #4a4949;
+    --input-color: #2d232a;
     --des-green: #3fffa3;
 
     --button-enter: #02a953;
@@ -35,6 +35,18 @@ a {
 }
 body {
     background: var(--background-body);
+}
+
+body::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+}
+  
+body::-webkit-scrollbar-track {
+    position: fixed;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--input-color);
 }
 
 body, input, textarea, select, button {

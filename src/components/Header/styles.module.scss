@@ -1,17 +1,26 @@
 .headerContainer {
-    height: 5rem;
+    height: 5.5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--background-body);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .headerContent {
     max-width: 1000px;
-    height: 5rem;
+    height: 5.5rem;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    a {
+        display: flex;
+        align-items: center;
+    }
     img {
         cursor: pointer;
     }

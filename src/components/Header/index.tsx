@@ -2,9 +2,9 @@ import Link from 'next/link';
 import styles from './styles.module.scss';
 import {FiLogOut} from 'react-icons/fi';
 import {useContext} from 'react'
-import {AuthContext} from '../../contexts/AuthContext';
+import {AuthContext} from '@/contexts/AuthContext';
 
-export default function Header() {
+export function Header() {
     const {signOut} = useContext(AuthContext);
 
     return (

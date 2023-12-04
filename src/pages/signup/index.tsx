@@ -1,15 +1,15 @@
 import {FormEvent, useState, useContext} from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../../../styles/Home.module.scss';
-import Logo from '../../../public/logo-jl-2.png';
+import styles from '@/../styles/Home.module.scss';
+import Logo from '@/../public/logo-jl-2.png';
 
-import { Input } from '../../components/ui/input';
-import {Button} from '../../components/ui/button';
+import { Input } from '@/components/ui/input';
+import {Button} from '@/components/ui/button';
 import Link from 'next/link';
 import {toast} from 'react-toastify';
 
-import {AuthContext} from '../../contexts/AuthContext';
+import {AuthContext} from '@/contexts/AuthContext';
 
 export default function Signup() {
   const {signUp} = useContext(AuthContext);

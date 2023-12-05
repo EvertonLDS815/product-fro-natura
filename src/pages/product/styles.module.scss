@@ -67,7 +67,7 @@
 
 .labelAvatar {
     width: 100%;
-    height: 250px;
+    height: 260px;
     background-color: var(--input-color);
     margin-bottom: 1rem;
     border-radius: 0.3rem;
@@ -105,4 +105,12 @@
         font-size: 1.6rem;
         text-align: center;
     }
+}
+
+@media (max-width: 420px) {
+    
+.labelAvatar {
+    height: auto;
+    aspect-ratio: 1/1;
+}
 }

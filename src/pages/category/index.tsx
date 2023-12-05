@@ -65,14 +65,16 @@ export default function Category({categoryList}: CategoryProps) {
 
                          <button type="submit" className={styles.buttonAdd}>Cadastrar</button>
                     </form>
-                    <div className={styles.categories}>
-                        <h2>Minhas Categorias</h2>
-                        <ul>
-                            {categories.map((item) => (
-                                <li key={item.id} className={styles.items}>{item.name}</li>
-                            ))}
-                        </ul>
-                    </div>
+                    {categories.length > 0 && (
+                        <div className={styles.categories}>
+                            <h2>Minhas Categorias</h2>
+                            <ul>
+                                {categories.map((item) => (
+                                    <li key={item.id} className={styles.items}>{item.name}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                 </main>
             </div>
         </>

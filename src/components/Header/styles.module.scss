@@ -5,6 +5,7 @@
     width: 100%;
     background-color: var(--background-body);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    z-index: 5;
 }
 
 .headerContent {
@@ -33,6 +34,7 @@
     a {
         color: var(--white);
         padding: 0 0.5rem;
+        font-size: 1.05rem;
         display: inline-block;
         position: relative;
 
@@ -55,5 +57,14 @@
         &:hover {
             transform: scale(1.2);
         }
+    }
+}
+@media (max-width: 520px) {
+    .headerContainer {
+        height: 7rem;
+    }
+    .headerContent {
+        flex-direction: column;
+        padding: 1rem;
     }
 }

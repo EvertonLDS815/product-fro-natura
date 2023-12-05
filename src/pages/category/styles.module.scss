@@ -1,8 +1,6 @@
-
-
 .container {
     max-width: 600px;
-    margin: 7rem auto;
+    margin: 7rem auto 0;
     padding: 2rem;
 
     display: flex;
@@ -64,5 +62,12 @@
 
     &:hover {
         filter: brightness(1.08);
+    }
+}
+
+@media (max-width: 520px) {
+    .container h1 {
+        font-size: 1.6rem;
+        text-align: center;
     }
 }

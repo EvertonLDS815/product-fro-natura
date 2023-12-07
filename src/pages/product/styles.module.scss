@@ -31,7 +31,7 @@
         margin-bottom: 1rem;
         padding: 0 0.5rem;
         color: var(--white);
-        background-color: var(--input-color);
+        background-color: var(--dark-900);
         border: 1px solid var(--gray);
     }
 }
@@ -41,7 +41,7 @@
     margin-bottom: 1rem;
     padding: 0 0.5rem;
     color: var(--white);
-    background-color: var(--input-color);
+    background-color: var(--dark-900);
     border: 1px solid var(--gray);
     height: 45px;
 
@@ -68,7 +68,7 @@
 .labelAvatar {
     width: 100%;
     height: 260px;
-    background-color: var(--input-color);
+    background-color: var(--dark-900);
     margin-bottom: 1rem;
     border-radius: 0.3rem;
     display: flex;

@@ -11,14 +11,13 @@
     --black: #000;
     --gray: #bbb;
     --primary-light: #60ffc3;
-    --dark-900: #b053ae;
     --dark-600: #613851;
     --mar-800: #643843;
     --mar-700: #563d4c;
     --mar-500: #C88EA7;
     --mar-300: #E7CBCB;
 
-    --input-color: #2d232a;
+    --dark-900: #2d232a;
     --des-green: #3fffa3;
 
     --button-enter: #02a953;
@@ -46,7 +45,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: var(--input-color);
+    background-color: var(--dark-900);
 }
 
 body, input, textarea, select, button {

@@ -23,10 +23,25 @@ export function setUpAPIClient(ctx = undefined) {
                 return Promise.reject(new AuthTokenError());
             }
         }
-        
         return Promise.reject(error);
     });
 
     return api;
+
+}
+
+
+export function setMe(ctx = undefined) {
+    let cookies = parseCookies(ctx);
+
+    const verify = axios.create({
+        baseURL: 'http://localhost:2222',
+        headers: {
+            Authorization: `Bearer ${cookies['@nextauth.token']}`
+        },
+        
+    });
+
+    return verify;
 
 }

@@ -60,5 +60,9 @@
 @media (max-width: 450px) {
     .container {
         padding: 0 1rem;
+
+        h1 {
+            font-size: 1.6rem;
+        }
     }
 }

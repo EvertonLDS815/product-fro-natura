@@ -71,3 +71,9 @@
         text-align: center;
     }
 }
+
+@media (max-width: 450px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+}

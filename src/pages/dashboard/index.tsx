@@ -4,6 +4,7 @@ import {Header} from '@/components/Header/index';
 import { useContext } from 'react';
 import {AuthContext} from '@/contexts/AuthContext';
 import styles from './styles.module.scss';
+import {FiRefreshCcw} from 'react-icons/fi';
 
 export default function Dashboard() {
     const {user} = useContext(AuthContext);
@@ -15,7 +16,22 @@ export default function Dashboard() {
             </Head>
             <Header />
             <main className={styles.container}>
-                <h1>Olá {user?.name}</h1>
+                <div className={styles.containerHeader}>
+                    <h1>Últimos pedidos</h1>
+                    <button>
+                        <FiRefreshCcw color="#60ffc3" size={25} />
+                    </button>
+                </div>
+                    <article className={styles.listOrders}>
+
+                        <section className={styles.orderItem}>
+                            <button>
+                                <div className={styles.tag}></div>
+                                <span>Natália</span>
+                            </button>
+                        </section>
+
+                    </article>
             </main>
         </>
     )

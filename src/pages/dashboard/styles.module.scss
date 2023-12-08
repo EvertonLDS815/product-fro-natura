@@ -1,9 +1,64 @@
-
-
 .container {
-    margin-top: 7rem;
+    max-width: 600px;
+    margin: 9rem auto;
+    padding: 0 2rem;
 
     h1 {
         color: var(--white);
+    }
+}
+
+.containerHeader {
+    display: flex;
+    flex-direction: row;
+
+    button {
+        background: transparent;
+        border: 0;
+        margin-left: 1rem;
+    }
+}
+
+.listOrders {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+
+.orderItem {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--dark-900);
+    margin-bottom: 1rem;
+    align-items: center;
+    border-radius: 0.3rem;
+
+    button {
+        border: 0;
+        background: transparent;
+        font-size: 1.2rem;
+        color: var(--white);
+        height: 60px;
+        align-items: center;
+        display: flex;
+        width: 100%;
+    }
+
+    &:hover {
+        background-color: var(--dark-600);
+    }
+}
+
+.tag {
+    width: 9px;
+    background-color: var(--primary-light);
+    height: 60px;
+    border-radius: 0.3rem 0 0 0.3rem;
+    margin-right: 1rem;
+}
+
+@media (max-width: 450px) {
+    .container {
+        padding: 0 1rem;
     }
 }

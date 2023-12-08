@@ -108,9 +108,11 @@
 }
 
 @media (max-width: 420px) {
-    
-.labelAvatar {
-    height: auto;
-    aspect-ratio: 1/1;
-}
+    .container {
+        padding: 0 1rem;
+    }
+    .labelAvatar {
+        height: auto;
+        aspect-ratio: 1/1;
+    }
 }

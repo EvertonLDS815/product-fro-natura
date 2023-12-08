@@ -4,19 +4,25 @@
     padding: 2rem;
     color: white;
 
-    p {
-        font-size: 1.1rem;
+    h1 {
+        margin-bottom: 1.5rem;
     }
+
 }
 
 .contentUser {
     background-color: var(--dark-900);
     padding: 2rem;
     border-radius: 0.3rem;
+
+    p {
+        font-size: 1.1rem;
+    }
 }
+
 .contentUser h2 {
     margin-bottom: 2rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .contentPass {
@@ -72,5 +78,16 @@
 
     button:hover {
         filter: brightness(1.16);
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        padding: 2rem 1rem;
+
+        h1 {
+            font-size: 1.6rem;
+            text-align: center;
+        }
     }
 }

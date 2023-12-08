@@ -18,10 +18,6 @@ export default function Profile() {
         event.preventDefault();
 
         try {
-
-            if (password === '' || newPassword.length < 5) {
-                throw new Error('Digite a senha correta')
-            }
             const set = setMe();
             
             const response = await set.patch('/edit', {
@@ -35,8 +31,7 @@ export default function Profile() {
             toast.success('Senha Alterada com sucesso!');
             Router.push('/dashboard');
         } catch (err: any) {
-            toast.error('Erro ao atualizar senha!');
-            console.log(err.message);
+            toast.error(err.response.data.error);
         }
     }
     return (
@@ -46,6 +41,8 @@ export default function Profile() {
             </Head>
             <Header />
             <main className={styles.container}>
+
+                <h1>Meu Perfil</h1>
 
                 <div className={styles.contentUser}>
                     <h2>{user?.name}</h2>

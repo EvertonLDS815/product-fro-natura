@@ -1,14 +1,30 @@
 import { canSSRAuth } from '@/utils/canSSRAuth';
 import Head from 'next/head';
 import {Header} from '@/components/Header/index';
-import { useContext } from 'react';
-import {AuthContext} from '@/contexts/AuthContext';
 import styles from './styles.module.scss';
 import {FiRefreshCcw} from 'react-icons/fi';
+import { setUpAPIClient } from '@/services/api';
+import { useState } from 'react';
 
-export default function Dashboard() {
-    const {user} = useContext(AuthContext);
+type OrderProps = {
+    id: string;
+    name: string;
+    neighborhood: string;
+    adress: string;
+    house_number: string;
+    status: boolean;
+    draft: boolean;
 
+}
+interface HomeProps {
+    orders: OrderProps[]
+}
+export default function Dashboard({orders}: HomeProps) {
+    const [orderList, setOrderList] = useState(orders || []);
+
+    function handleOpenModalView(id: string) {
+        alert(id)
+    }
     return (
         <>
             <Head>
@@ -24,12 +40,14 @@ export default function Dashboard() {
                 </div>
                     <article className={styles.listOrders}>
 
-                        <section className={styles.orderItem}>
-                            <button>
-                                <div className={styles.tag}></div>
-                                <span>Natália</span>
-                            </button>
-                        </section>
+                        {orderList.map((item) => (
+                            <section className={styles.orderItem} key={item.id}>
+                                <button onClick={() => handleOpenModalView(item.id)}>
+                                    <div className={styles.tag}></div>
+                                    <span>{item.name}</span>
+                                </button>
+                            </section>
+                        ))}
 
                     </article>
             </main>
@@ -37,9 +55,13 @@ export default function Dashboard() {
     )
 }
 
-export const getServerSideProps = canSSRAuth(async (ctx) => {
-
+export const getServerSideProps = canSSRAuth(async (ctx: any) => {
+    const apiClient = setUpAPIClient(ctx);
+    const response = await apiClient.get('/orders');
+    
     return {
-        props: {}
+        props: {
+            orders: response.data
+        }
     }
 })

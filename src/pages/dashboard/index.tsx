@@ -5,6 +5,8 @@ import styles from './styles.module.scss';
 import {FiRefreshCcw} from 'react-icons/fi';
 import { setUpAPIClient } from '@/services/api';
 import { useState } from 'react';
+import Modal from 'react-modal';
+import {ModalOrder} from '@/components/ModalOrder';
 
 type OrderProps = {
     id: string;
@@ -16,15 +18,58 @@ type OrderProps = {
     draft: boolean;
 
 }
+
+export type OrderItemProps = {
+    id: string;
+    amount: number;
+    order_id: string;
+    product_id: string;
+    product: {
+        id: string;
+        name: string;
+        price: string;
+        description: string;
+        banner: string;
+        category_id: string;
+    }
+    order: {
+        id: string;
+        name: string;
+        neighborhood: string;
+        adress: string;
+        house_number: string;
+        status: boolean;
+        draft: boolean;
+    }
+}
 interface HomeProps {
     orders: OrderProps[]
 }
 export default function Dashboard({orders}: HomeProps) {
     const [orderList, setOrderList] = useState(orders || []);
 
-    function handleOpenModalView(id: string) {
-        alert(id)
+    const [modalItem, setModalItem] = useState<OrderItemProps[]>([]);
+    const [modalVisible, setModalVisible] = useState(false);
+
+
+    function handleCloseModal() {
+        setModalVisible(false);
     }
+
+    async function handleOpenModalView(id: string) {
+        const apiClient = setUpAPIClient();
+        
+        const response = await apiClient.get('/order/detail', {
+            params: {
+                order_id: id
+            }
+        });
+
+        setModalItem(response.data);
+        setModalVisible(true);
+    }
+    
+    Modal.setAppElement('#__next');
     return (
         <>
             <Head>
@@ -51,6 +96,14 @@ export default function Dashboard({orders}: HomeProps) {
 
                     </article>
             </main>
+
+            { modalVisible && (
+                <ModalOrder
+                isOpen={modalVisible}
+                onRequestClose={handleCloseModal}
+                order={modalItem}
+                />
+            )}
         </>
     )
 }

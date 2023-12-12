@@ -25,6 +25,11 @@
     margin: 1.5rem 0;
 }
 
+.message {
+    font-size: 1.2rem;
+    color: var(--gray);
+}
+
 .orderItem {
     display: flex;
     flex-direction: row;
@@ -42,6 +47,10 @@
         align-items: center;
         display: flex;
         width: 100%;
+    }
+
+    span {
+        color: var(--gray);
     }
 
     &:hover {

@@ -8,18 +8,44 @@
     > h2 {
         margin: 1rem 0;
     }
+}
+
+.headModal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem 0;
     h3 {
         color: var(--des-red-light);
         font-size: 1.4rem;
         padding: 0.3rem 0;
     }
+    span {
+        font-size: 1.2rem;
+    }
 }
 
+.scrollY::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollY {
+    margin-top: 15px;
+    height: 200px;
+    overflow-y: scroll;
+}
+.top {
+    margin-top: 15px;
+}
 .containerItem {
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
+    padding: 0.7rem 0.5rem;
     font-size: 1.1rem;
+
+    &:nth-child(2n + 1) {
+        background-color: #352a31;
+    }
     
     & + .containerItem {
         border-top: 1px solid var(--gray);

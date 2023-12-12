@@ -67,6 +67,28 @@ export default function Dashboard({orders}: HomeProps) {
 
         setModalItem(response.data);
         setModalVisible(true);
+
+    }
+
+    async function handleRefresh() {
+        const apiClient = setUpAPIClient();
+        const response = await apiClient.get('/orders');
+        
+        setOrderList(response.data);
+    }
+    
+    async function handleFinishedOrder(id: string) {
+        const apiClient = setUpAPIClient();
+
+        await apiClient.patch('/order/finish', {
+            order_id: id
+        });
+
+        const response = await apiClient.get('/orders');
+        
+        setOrderList(response.data);
+        setModalVisible(false);
+
     }
     
     Modal.setAppElement('#__next');
@@ -79,17 +101,19 @@ export default function Dashboard({orders}: HomeProps) {
             <main className={styles.container}>
                 <div className={styles.containerHeader}>
                     <h1>Últimos pedidos</h1>
-                    <button>
+                    <button onClick={handleRefresh}>
                         <FiRefreshCcw color="#60ffc3" size={25} />
                     </button>
                 </div>
                     <article className={styles.listOrders}>
-
+                        {orderList.length === 0 && (
+                            <span className={styles.message}>Não existem pedidos...</span>
+                        )}
                         {orderList.map((item) => (
                             <section className={styles.orderItem} key={item.id}>
                                 <button onClick={() => handleOpenModalView(item.id)}>
                                     <div className={styles.tag}></div>
-                                    <span>{item.name}</span>
+                                    <p>{item.name} - <span>{item.neighborhood}</span></p>
                                 </button>
                             </section>
                         ))}
@@ -102,6 +126,7 @@ export default function Dashboard({orders}: HomeProps) {
                 isOpen={modalVisible}
                 onRequestClose={handleCloseModal}
                 order={modalItem}
+                onFinished={handleFinishedOrder}
                 />
             )}
         </>
